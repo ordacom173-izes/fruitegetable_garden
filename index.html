@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fruitegetable Garden - Fresh Vegan Produce</title>
+<link rel="icon" type="image/jpeg" href="container:///mnt/data/photo3673443479047903941.jpeg">
+<!-- Google Analytics - Uncomment to enable when deployed -->
+<!-- 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+-->
+<style>
+  :root {
+    --green-900: #14532d;
+    --green-700: #15803d;
+    --green-500: #22c55e;
+    --green-100: #dcfce7;
+    --orange-700: #c2410c;
+    --orange-500: #f97316;
+    --orange-100: #ffedd5;
+    --red-600: #dc2626;
+    --red-100: #fee2e2;
+    --yellow-500: #eab308;
+    --yellow-100: #fef9c3;
+    --gray-900: #111827;
+    --gray-700: #374151;
+    --gray-500: #6b7280;
+    --gray-300: #d1d5db;
+    --gray-100: #f3f4f6;
+    --white: #ffffff;
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --radius: 12px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--gray-900);
+    background: linear-gradient(135deg, var(--green-100) 0%, var(--yellow-100) 50%, var(--orange-100) 100%);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  button {
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    transition: var(--transition);
+  }
+
+  input, select, textarea {
+    font-family: inherit;
+    border: 1px solid var(--gray-300);
+    border-radius: 8px;
+    padding: 0.625rem 0.875rem;
+    outline: none;
+    transition: var(--transition);
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--green-500);
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+  }
+
+  /* Header */
+  header {
+    background: var(--white);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    gap: 1rem;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .logo img {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+
+  .logo h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--green-700), var(--orange-500));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  nav {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  nav a {
+    color: var(--gray-700);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+  }
+
+  nav a:hover, nav a.active {
+    color: var(--green-700);
+  }
+
+  nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--green-500);
+    border-radius: 2px;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .icon-btn {
+    background: var(--gray-100);
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .icon-btn:hover {
+    background: var(--green-100);
+    transform: translateY(-2px);
+  }
+
+  .cart-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: var(--red-600);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    min-width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 6px;
+  }
+
+  .mobile-menu-btn {
+    display: none;
+  }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, var(--green-700) 0%, var(--orange-500) 100%);
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .hero h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+
+  .hero p {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    position: relative;
+  }
+
+  .btn {
+    background: var(--white);
+    color: var(--green-700);
+    padding: 0.875rem 2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: var(--shadow-lg);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+  }
+
+  .btn-primary {
+    background: var(--green-700);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: var(--green-900);
+  }
+
+  .btn-orange {
+    background: var(--orange-500);
+    color: white;
+  }
+
+  .btn-orange:hover {
+    background: var(--orange-700);
+  }
+
+  /* Filters */
+  .filters {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin: 2rem 0;
+    display: grid;
+    grid-template-columns: 1fr auto auto auto;
+    gap: 1rem;
+    align-items: end;
+  }
+
+  .filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .filter-group label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--gray-700);
+  }
+
+  /* Product Grid */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .product-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    cursor: pointer;
+  }
+
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .product-image {
+    width: 100%;
+    height: 220px;
+    background: linear-gradient(135deg, var(--green-100), var(--yellow-100));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .product-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--orange-500);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  .product-content {
+    padding: 1.25rem;
+  }
+
+  .product-category {
+    font-size: 0.75rem;
+    color: var(--green-700);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .product-name {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+    color: var(--gray-900);
+  }
+
+  .product-reviews {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+  }
+
+  .stars {
+    display: flex;
+    gap: 2px;
+  }
+
+  .product-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+
+  .product-price {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--green-700);
+  }
+
+  .add-to-cart {
+    background: var(--green-500);
+    color: white;
+    padding: 0.625rem 1.25rem;
+    border-radius: 8px;
+    font-weight: 600;
+  }
+
+  .add-to-cart:hover {
+    background: var(--green-700);
+  }
+
+  .add-to-cart:disabled {
+    background: var(--gray-300);
+    cursor: not-allowed;
+  }
+
+  /* Cart Drawer */
+  .drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 200;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition);
+  }
+
+  .drawer-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .drawer {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 450px;
+    background: var(--white);
+    box-shadow: var(--shadow-lg);
+    z-index: 201;
+    transform: translateX(100%);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .drawer.active {
+    transform: translateX(0);
+  }
+
+  .drawer-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--gray-300);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .drawer-header h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .drawer-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+  }
+
+  .cart-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  .cart-item-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    background: var(--green-100);
+    flex-shrink: 0;
+  }
+
+  .cart-item-content {
+    flex: 1;
+  }
+
+  .cart-item-name {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+
+  .cart-item-price {
+    color: var(--green-700);
+    font-weight: 700;
+  }
+
+  .qty-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .qty-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background: var(--gray-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+  }
+
+  .qty-btn:hover {
+    background: var(--green-100);
+  }
+
+  .drawer-footer {
+    padding: 1.5rem;
+    border-top: 1px solid var(--gray-300);
+  }
+
+  .cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  /* Modal */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition);
+  }
+
+  .modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .modal {
+    background: var(--white);
+    border-radius: var(--radius);
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow-lg);
+    transform: scale(0.95);
+    transition: var(--transition);
+  }
+
+  .modal-overlay.active .modal {
+    transform: scale(1);
+  }
+
+  .modal-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--gray-300);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .modal-body {
+    padding: 1.5rem;
+  }
+
+  /* Forms */
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--gray-700);
+  }
+
+  .form-group input, .form-group textarea {
+    width: 100%;
+  }
+
+  /* Pages */
+  .page {
+    padding: 3rem 0;
+    min-height: 60vh;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .page-header h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--green-700), var(--orange-500));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Admin Panel */
+  .admin-modal {
+    max-width: 1000px;
+  }
+
+  .tabs {
+    display: flex;
+    gap: 0.5rem;
+    border-bottom: 2px solid var(--gray-300);
+    margin-bottom: 1.5rem;
+  }
+
+  .tab {
+    padding: 0.75rem 1.5rem;
+    background: none;
+    font-weight: 600;
+    color: var(--gray-500);
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+  }
+
+  .tab.active {
+    color: var(--green-700);
+    border-bottom-color: var(--green-700);
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .data-table th {
+    background: var(--gray-100);
+    padding: 0.75rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+
+  .data-table td {
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--gray-300);
+  }
+
+  .data-table input {
+    width: 80px;
+    padding: 0.375rem;
+  }
+
+  /* Footer */
+  footer {
+    background: var(--gray-900);
+    color: var(--gray-300);
+    padding: 3rem 0 1.5rem;
+    margin-top: 4rem;
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .footer-logo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+  }
+
+  .footer-section h4 {
+    color: white;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+
+  .footer-section a {
+    color: var(--gray-300);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.5rem;
+    transition: var(--transition);
+  }
+
+  .footer-section a:hover {
+    color: var(--green-500);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid var(--gray-700);
+    padding-top: 1.5rem;
+    text-align: center;
+    color: var(--gray-500);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    nav, .hero h2 {
+      font-size: 2rem;
+    }
+
+    .mobile-menu-btn {
+      display: flex;
+    }
+
+    nav {
+      position: fixed;
+      top: 80px;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      flex-direction: column;
+      padding: 1rem;
+      box-shadow: var(--shadow);
+      transform: translateY(-100%);
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition);
+    }
+
+    nav.active {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .filters {
+      grid-template-columns: 1fr;
+    }
+
+    .drawer {
+      max-width: 100%;
+    }
+  }
+
+  /* Toast */
+  .toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--green-700);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+    z-index: 1000;
+    transform: translateY(200%);
+    transition: var(--transition);
+  }
+
+  .toast.show {
+    transform: translateY(0);
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 4rem 1rem;
+    color: var(--gray-500);
+  }
+
+  /* SVG Icons */
+  .icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
+</style>
+</head>
+<body>
+<img id="logo-img" src="container:///mnt/data/photo3673443479047903941.jpeg" hidden>
+
+<header>
+  <div class="container">
+    <div class="header-content">
+      <div class="logo" id="logo">
+        <img src="container:///mnt/data/photo3673443479047903941.jpeg" alt="Fruitegetable Garden">
+        <h1>Fruitegetable Garden</h1>
+      </div>
+      <nav id="nav">
+        <a href="#home" class="nav-link active" data-page="home">Home</a>
+        <a href="#products" class="nav-link" data-page="products">Shop</a>
+        <a href="#about" class="nav-link" data-page="about">About</a>
+        <a href="#contact" class="nav-link" data-page="contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" id="user-btn" title="Account">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+        </button>
+        <button class="icon-btn" id="cart-btn" title="Cart">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+          <span class="cart-badge" id="cart-count">0</span>
+        </button>
+        <button class="icon-btn mobile-menu-btn" id="menu-btn">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<div class="drawer-overlay" id="cart-overlay">
+  <div class="drawer" id="cart-drawer">
+    <div class="drawer-header">
+      <h3>Shopping Cart</h3>
+      <button class="icon-btn" id="close-cart">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+      </button>
+    </div>
+    <div class="drawer-body" id="cart-items"></div>
+    <div class="drawer-footer">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cart-total">$0.00</span>
+      </div>
+      <button class="btn btn-primary" style="width: 100%" id="checkout-btn">Proceed to Checkout</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal" id="modal"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <div class="footer-logo">
+          <img src="container:///mnt/data/photo3673443479047903941.jpeg" alt="Logo">
+          <h3 style="color: white;">Fruitegetable Garden</h3>
+        </div>
+        <p>Your source for fresh, organic vegan produce delivered straight from local farms to your door.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Shop</h4>
+        <a href="#products">All Products</a>
+        <a href="#products">Fruits</a>
+        <a href="#products">Vegetables</a>
+        <a href="#products">Organic</a>
+      </div>
+      <div class="footer-section">
+        <h4>Company</h4>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+        <a href="#404">Shipping Info</a>
+        <a href="#404">Returns</a>
+      </div>
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <a href="#404">Facebook</a>
+        <a href="#404">Instagram</a>
+        <a href="#404">Twitter</a>
+        <a href="#404">Newsletter</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Fruitegetable Garden. All rights reserved. 100% Vegan & Organic.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// SVG Product Placeholders
+const productSVGs = [
+  `<svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="80" fill="#ef4444"/><path d="M70 60 Q100 40 130 60 Q120 100 100 120 Q80 100 70 60" fill="#22c55e"/></svg>`,
+  `<svg viewBox="0 0 200 200"><ellipse cx="100" cy="110" rx="60" ry="80" fill="#f97316"/><circle cx="100" cy="50" r="15" fill="#22c55e"/></svg>`,
+  `<svg viewBox="0 0 200 200"><path d="M100 40 L60 120 L140 120 Z" fill="#22c55e"/><ellipse cx="100" cy="140" rx="40" ry="30" fill="#16a34a"/></svg>`,
+  `<svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="70" fill="#eab308"/><path d="M100 30 Q110 50 100 70 Q90 50 100 30" fill="#22c55e"/></svg>`,
+  `<svg viewBox="0 0 200 200"><ellipse cx="100" cy="100" rx="80" ry="60" fill="#a855f7"/><circle cx="85" cy="90" r="5" fill="#fff" opacity="0.5"/></svg>`,
+  `<svg viewBox="0 0 200 200"><ellipse cx="100" cy="100" rx="50" ry="90" fill="#22c55e"/><path d="M100 20 L90 40 L110 40 Z" fill="#15803d"/></svg>`,
+  `<svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="75" fill="#f59e0b"/><path d="M100 25 L95 40 L105 40 Z" fill="#22c55e"/></svg>`,
+  `<svg viewBox="0 0 200 200"><ellipse cx="100" cy="100" rx="70" ry="85" fill="#dc2626"/><circle cx="100" cy="40" r="12" fill="#22c55e"/></svg>`,
+  `<svg viewBox="0 0 200 200"><path d="M100 30 Q60 70 60 120 Q60 170 100 170 Q140 170 140 120 Q140 70 100 30" fill="#16a34a"/><path d="M90 40 L110 40 L105 50 L95 50 Z" fill="#15803d"/></svg>`,
+  `<svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="70" fill="#f97316"/><path d="M100 30 Q115 45 100 60 Q85 45 100 30" fill="#22c55e"/></svg>`,
+  `<svg viewBox="0 0 200 200"><ellipse cx="100" cy="100" rx="80" ry="65" fill="#eab308"/><circle cx="100" cy="50" r="10" fill="#22c55e"/></svg>`,
+  `<svg viewBox="0 0 200 200"><circle cx="70" cy="100" r="40" fill="#7c3aed"/><circle cx="130" cy="100" r="40" fill="#7c3aed"/><path d="M100 60 Q105 80 100 100 Q95 80 100 60" fill="#22c55e"/></svg>`
+];
+
+// Default Products Data
+const defaultProducts = [
+  {id: 1, name: "Organic Strawberries", price: 4.99, category: "Fruits", stock: 50, active: true, rating: 4.8, reviews: 124, svg: 0},
+  {id: 2, name: "Fresh Carrots", price: 2.49, category: "Vegetables", stock: 100, active: true, rating: 4.6, reviews: 89, svg: 1},
+  {id: 3, name: "Baby Spinach", price: 3.99, category: "Vegetables", stock: 75, active: true, rating: 4.9, reviews: 156, svg: 2},
+  {id: 4, name: "Organic Lemons", price: 3.49, category: "Fruits", stock: 60, active: true, rating: 4.7, reviews: 92, svg: 3},
+  {id: 5, name: "Fresh Eggplant", price: 2.99, category: "Vegetables", stock: 40, active: true, rating: 4.5, reviews: 67, svg: 4},
+  {id: 6, name: "Cucumber", price: 1.99, category: "Vegetables", stock: 80, active: true, rating: 4.6, reviews: 103, svg: 5},
+  {id: 7, name: "Organic Oranges", price: 5.49, category: "Fruits", stock: 55, active: true, rating: 4.8, reviews: 118, svg: 6},
+  {id: 8, name: "Ripe Tomatoes", price: 3.49, category: "Vegetables", stock: 90, active: true, rating: 4.7, reviews: 134, svg: 7},
+  {id: 9, name: "Fresh Avocados", price: 6.99, category: "Fruits", stock: 45, active: true, rating: 4.9, reviews: 201, svg: 8},
+  {id: 10, name: "Bell Peppers", price: 2.99, category: "Vegetables", stock: 65, active: true, rating: 4.6, reviews: 88, svg: 9},
+  {id: 11, name: "Golden Mango", price: 4.49, category: "Fruits", stock: 35, active: true, rating: 4.8, reviews: 145, svg: 10},
+  {id: 12, name: "Organic Grapes", price: 5.99, category: "Fruits", stock: 50, active: true, rating: 4.7, reviews: 167, svg: 11}
+];
+
+// State Management
+const state = {
+  products: JSON.parse(localStorage.getItem('fg_products')) || defaultProducts,
+  cart: JSON.parse(localStorage.getItem('fg_cart')) || [],
+  user: JSON.parse(localStorage.getItem('fg_user')) || null,
+  orders: JSON.parse(localStorage.getItem('fg_orders')) || [],
+  currentPage: 'home',
+  filters: {search: '', category: 'all', sort: 'name', maxPrice: 10}
+};
+
+// Utility Functions
+const $ = (sel) => document.querySelector(sel);
+const $$ = (sel) => document.querySelectorAll(sel);
+
+function saveState() {
+  localStorage.setItem('fg_products', JSON.stringify(state.products));
+  localStorage.setItem('fg_cart', JSON.stringify(state.cart));
+  localStorage.setItem('fg_user', JSON.stringify(state.user));
+  localStorage.setItem('fg_orders', JSON.stringify(state.orders));
+}
+
+function showToast(msg) {
+  const toast = $('#toast');
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 3000);
+}
+
+function formatPrice(price) {
+  return `$${price.toFixed(2)}`;
+}
+
+function renderStars(rating) {
+  const full = Math.floor(rating);
+  const half = rating % 1 >= 0.5;
+  let html = '';
+  for(let i = 0; i < 5; i++) {
+    if(i < full) html += '<svg class="icon" viewBox="0 0 24 24" fill="#eab308"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>';
+    else if(i === full && half) html += '<svg class="icon" viewBox="0 0 24 24"><defs><linearGradient id="half"><stop offset="50%" stop-color="#eab308"/><stop offset="50%" stop-color="#d1d5db"/></linearGradient></defs><path fill="url(#half)" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>';
+    else html += '<svg class="icon" viewBox="0 0 24 24" fill="#d1d5db"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>';
+  }
+  return html;
+}
+
+// Cart Functions
+function addToCart(productId) {
+  const product = state.products.find(p => p.id === productId);
+  if(!product || !product.active || product.stock === 0) return;
+  
+  const item = state.cart.find(i => i.id === productId);
+  if(item) {
+    if(item.qty < product.stock) item.qty++;
+    else return showToast('Maximum stock reached');
+  } else {
+    state.cart.push({...product, qty: 1});
+  }
+  saveState();
+  updateCartUI();
+  showToast(`${product.name} added to cart`);
+}
+
+function updateQty(productId, delta) {
+  const item = state.cart.find(i => i.id === productId);
+  const product = state.products.find(p => p.id === productId);
+  if(!item) return;
+  
+  item.qty += delta;
+  if(item.qty <= 0) {
+    state.cart = state.cart.filter(i => i.id !== productId);
+  } else if(item.qty > product.stock) {
+    item.qty = product.stock;
+    showToast('Maximum stock reached');
+  }
+  saveState();
+  updateCartUI();
+  renderCart();
+}
+
+function updateCartUI() {
+  const count = state.cart.reduce((sum, item) => sum + item.qty, 0);
+  $('#cart-count').textContent = count;
+  const total = state.cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+  $('#cart-total').textContent = formatPrice(total);
+}
+
+function renderCart() {
+  const container = $('#cart-items');
+  if(state.cart.length === 0) {
+    container.innerHTML = '<div class="empty-state">Your cart is empty</div>';
+    return;
+  }
+  
+  container.innerHTML = state.cart.map(item => `
+    <div class="cart-item">
+      <div class="cart-item-image">${productSVGs[item.svg]}</div>
+      <div class="cart-item-content">
+        <div class="cart-item-name">${item.name}</div>
+        <div class="cart-item-price">${formatPrice(item.price)}</div>
+        <div class="qty-controls">
+          <button class="qty-btn" onclick="updateQty(${item.id}, -1)">-</button>
+          <span>${item.qty}</span>
+          <button class="qty-btn" onclick="updateQty(${item.id}, 1)">+</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// Product Filtering
+function getFilteredProducts() {
+  let products = state.products.filter(p => p.active);
+  
+  if(state.filters.search) {
+    products = products.filter(p => p.name.toLowerCase().includes(state.filters.search.toLowerCase()));
+  }
+  
+  if(state.filters.category !== 'all') {
+    products = products.filter(p => p.category === state.filters.category);
+  }
+  
+  products = products.filter(p => p.price <= state.filters.maxPrice);
+  
+  switch(state.filters.sort) {
+    case 'price-low': products.sort((a,b) => a.price - b.price); break;
+    case 'price-high': products.sort((a,b) => b.price - a.price); break;
+    case 'rating': products.sort((a,b) => b.rating - a.rating); break;
+    default: products.sort((a,b) => a.name.localeCompare(b.name));
+  }
+  
+  return products;
+}
+
+// Page Rendering
+function renderPage(page) {
+  state.currentPage = page;
+  $$('.nav-link').forEach(link => {
+    link.classList.toggle('active', link.dataset.page === page);
+  });
+  
+  if(typeof gtag !== 'undefined') gtag('event', 'page_view', {page_title: page});
+  
+  switch(page) {
+    case 'home':
+      renderHome();
+      break;
+    case 'products':
+      renderProducts();
+      break;
+    case 'about':
+      renderAbout();
+      break;
+    case 'contact':
+      renderContact();
+      break;
+    case '404':
+      render404();
+      break;
+    case 'profile':
+      renderProfile();
+      break;
+    default:
+      render404();
+  }
+  
+  window.scrollTo(0, 0);
+}
+
+function renderHome() {
+  const featured = state.products.filter(p => p.active).slice(0, 4);
+  $('#app').innerHTML = `
+    <section class="hero">
+      <div class="container">
+        <h2>Fresh Vegan Produce Delivered</h2>
+        <p>Farm-fresh fruits and vegetables, 100% organic and vegan. Straight from local farms to your table.</p>
+        <button class="btn" onclick="renderPage('products')">Shop Now</button>
+      </div>
+    </section>
+    <section class="container page">
+      <div class="page-header">
+        <h2>Featured Products</h2>
+        <p>Handpicked fresh produce</p>
+      </div>
+      <div class="products-grid">
+        ${featured.map(renderProductCard).join('')}
+      </div>
+    </section>
+  `;
+}
+
+function renderProducts() {
+  const products = getFilteredProducts();
+  $('#app').innerHTML = `
+    <section class="container page">
+      <div class="page-header">
+        <h2>Shop All Products</h2>
+        <p>Fresh, organic, vegan produce</p>
+      </div>
+      <div class="filters">
+        <div class="filter-group">
+          <label>Search</label>
+          <input type="text" id="search-input" placeholder="Search products..." value="${state.filters.search}">
+        </div>
+        <div class="filter-group">
+          <label>Category</label>
+          <select id="category-filter">
+            <option value="all">All Categories</option>
+            <option value="Fruits">Fruits</option>
+            <option value="Vegetables">Vegetables</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Max Price</label>
+          <input type="number" id="price-filter" value="${state.filters.maxPrice}" min="0" max="10" step="0.5">
+        </div>
+        <div class="filter-group">
+          <label>Sort By</label>
+          <select id="sort-filter">
+            <option value="name">Name</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="rating">Rating</option>
+          </select>
+        </div>
+      </div>
+      <div class="products-grid">
+        ${products.length ? products.map(renderProductCard).join('') : '<div class="empty-state">No products found</div>'}
+      </div>
+    </section>
+  `;
+  
+  $('#search-input').addEventListener('input', (e) => {
+    state.filters.search = e.target.value;
+    renderProducts();
+  });
+  $('#category-filter').addEventListener('change', (e) => {
+    state.filters.category = e.target.value;
+    renderProducts();
+  });
+  $('#price-filter').addEventListener('input', (e) => {
+    state.filters.maxPrice = parseFloat(e.target.value);
+    renderProducts();
+  });
+  $('#sort-filter').addEventListener('change', (e) => {
+    state.filters.sort = e.target.value;
+    renderProducts();
+  });
+}
+
+function renderProductCard(product) {
+  return `
+    <div class="product-card" onclick="viewProduct(${product.id})">
+      <div class="product-image">
+        ${productSVGs[product.svg]}
+        ${product.stock < 10 ? '<span class="product-badge">Low Stock</span>' : ''}
+      </div>
+      <div class="product-content">
+        <div class="product-category">${product.category}</div>
+        <div class="product-name">${product.name}</div>
+        <div class="product-reviews">
+          <div class="stars">${renderStars(product.rating)}</div>
+          <span style="font-size: 0.875rem; color: var(--gray-500)">(${product.reviews})</span>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">${formatPrice(product.price)}</div>
+          <button class="add-to-cart" onclick="event.stopPropagation(); addToCart(${product.id})" ${product.stock === 0 ? 'disabled' : ''}>
+            ${product.stock === 0 ? 'Out of Stock' : 'Add to Cart'}
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function viewProduct(id) {
+  const product = state.products.find(p => p.id === id);
+  if(!product) return;
+  
+  if(typeof gtag !== 'undefined') gtag('event', 'view_item', {
+    currency: 'USD',
+    value: product.price,
+    items: [{item_id: product.id, item_name: product.name, price: product.price}]
+  });
+  
+  showModal(`
+    <div class="modal-header">
+      <h3>${product.name}</h3>
+      <button class="icon-btn" onclick="closeModal()">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;">
+        <div style="background: var(--green-100); padding: 2rem; border-radius: 12px;">${productSVGs[product.svg]}</div>
+        <div>
+          <div class="product-category" style="margin-bottom: 0.5rem;">${product.category}</div>
+          <div class="stars" style="margin-bottom: 1rem;">${renderStars(product.rating)} <span style="color: var(--gray-500); margin-left: 0.5rem;">${product.rating} (${product.reviews} reviews)</span></div>
+          <p style="margin-bottom: 1.5rem; color: var(--gray-700);">Fresh, organic ${product.name.toLowerCase()} sourced from local sustainable farms. 100% vegan and pesticide-free.</p>
+          <div style="font-size: 2rem; font-weight: 800; color: var(--green-700); margin-bottom: 1rem;">${formatPrice(product.price)}</div>
+          <div style="margin-bottom: 1.5rem; color: var(--gray-500);">Stock: ${product.stock} available</div>
+          <button class="btn btn-primary" style="width: 100%;" onclick="addToCart(${product.id}); closeModal();" ${product.stock === 0 ? 'disabled' : ''}>
+            ${product.stock === 0 ? 'Out of Stock' : 'Add to Cart'}
+          </button>
+        </div>
+      </div>
+    </div>
+  `);
+}
+
+function renderAbout() {
+  $('#app').innerHTML = `
+    <section class="container page">
+      <div class="page-header">
+        <h2>About Fruitegetable Garden</h2>
+        <p>Your trusted source for vegan produce</p>
+      </div>
+      <div style="max-width: 800px; margin: 0 auto;">
+        <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 2rem;">
+          <h3 style="color: var(--green-700); margin-bottom: 1rem;">Our Mission</h3>
+          <p style="margin-bottom: 1rem;">At Fruitegetable Garden, we believe everyone deserves access to fresh, nutritious, 100% plant-based produce. We partner directly with local organic farms to bring you the highest quality fruits and vegetables while supporting sustainable agriculture.</p>
+          <p>Every product in our store is certified vegan, organic, and ethically sourced. We're committed to reducing food waste and our carbon footprint through eco-friendly packaging and local delivery.</p>
+        </div>
+        <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: var(--shadow);">
+          <h3 style="color: var(--orange-500); margin-bottom: 1rem;">Why Choose Us?</h3>
+          <ul style="list-style: none; padding: 0;">
+            <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--gray-300);">✓ 100% Organic & Vegan Certified</li>
+            <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--gray-300);">✓ Direct from Local Farms</li>
+            <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--gray-300);">✓ Same-Day Delivery Available</li>
+            <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--gray-300);">✓ Eco-Friendly Packaging</li>
+            <li style="padding: 0.75rem 0;">✓ Satisfaction Guaranteed</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderContact() {
+  $('#app').innerHTML = `
+    <section class="container page">
+      <div class="page-header">
+        <h2>Contact Us</h2>
+        <p>We'd love to hear from you</p>
+      </div>
+      <div style="max-width: 600px; margin: 0 auto;">
+        <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: var(--shadow);">
+          <form id="contact-form">
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" required>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" required>
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  `;
+  
+  $('#contact-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    showToast('Message sent! We\'ll get back to you soon.');
+    e.target.reset();
+  });
+}
+
+function render404() {
+  $('#app').innerHTML = `
+    <section class="container page">
+      <div class="empty-state">
+        <div style="font-size: 6rem; margin-bottom: 1rem;">🥬</div>
+        <h2 style="font-size: 2rem; margin-bottom: 1rem;">Page Not Found</h2>
+        <p style="margin-bottom: 2rem;">The page you're looking for doesn't exist.</p>
+        <button class="btn btn-primary" onclick="renderPage('home')">Back to Home</button>
+      </div>
+    </section>
+  `;
+}
+
+// Auth Functions
+function showAuthModal() {
+  if(state.user) {
+    renderPage('profile');
+    return;
+  }
+  
+  showModal(`
+    <div class="modal-header">
+      <h3>Account</h3>
+      <button class="icon-btn" onclick="closeModal()">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="tabs">
+        <button class="tab active" id="login-tab">Login</button>
+        <button class="tab" id="signup-tab">Sign Up</button>
+      </div>
+      <form id="login-form">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="login-email" required>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="login-password" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+      </form>
+      <form id="signup-form" class="hidden">
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" id="signup-name" required>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="signup-email" required>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="signup-password" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Sign Up</button>
+      </form>
+    </div>
+  `);
+  
+  $('#login-tab').addEventListener('click', () => {
+    $('#login-tab').classList.add('active');
+    $('#signup-tab').classList.remove('active');
+    $('#login-form').classList.remove('hidden');
+    $('#signup-form').classList.add('hidden');
+  });
+  
+  $('#signup-tab').addEventListener('click', () => {
+    $('#signup-tab').classList.add('active');
+    $('#login-tab').classList.remove('active');
+    $('#signup-form').classList.remove('hidden');
+    $('#login-form').classList.add('hidden');
+  });
+  
+  $('#login-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = $('#login-email').value;
+    const users = JSON.parse(localStorage.getItem('fg_users')) || [];
+    const user = users.find(u => u.email === email);
+    if(user) {
+      state.user = user;
+      saveState();
+      closeModal();
+      showToast('Welcome back!');
+      renderPage('profile');
+    } else {
+      showToast('User not found. Please sign up.');
+    }
+  });
+  
+  $('#signup-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = $('#signup-name').value;
+    const email = $('#signup-email').value;
+    const password = $('#signup-password').value;
+    const users = JSON.parse(localStorage.getItem('fg_users')) || [];
+    
+    if(users.find(u => u.email === email)) {
+      showToast('Email already registered');
+      return;
+    }
+    
+    const user = {name, email, password};
+    users.push(user);
+    localStorage.setItem('fg_users', JSON.stringify(users));
+    state.user = user;
+    saveState();
+    closeModal();
+    showToast('Account created successfully!');
+    renderPage('profile');
+  });
+}
+
+function renderProfile() {
+  if(!state.user) {
+    renderPage('home');
+    return;
+  }
+  
+  const userOrders = state.orders.filter(o => o.email === state.user.email);
+  
+  $('#app').innerHTML = `
+    <section class="container page">
+      <div class="page-header">
+        <h2>My Account</h2>
+      </div>
+      <div style="max-width: 800px; margin: 0 auto;">
+        <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 2rem;">
+          <h3 style="margin-bottom: 1rem;">Profile Information</h3>
+          <p><strong>Name:</strong> ${state.user.name}</p>
+          <p><strong>Email:</strong> ${state.user.email}</p>
+          <button class="btn btn-orange" style="margin-top: 1rem;" onclick="logout()">Logout</button>
+        </div>
+        <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: var(--shadow);">
+          <h3 style="margin-bottom: 1rem;">Order History</h3>
+          ${userOrders.length === 0 ? '<p style="color: var(--gray-500);">No orders yet</p>' : userOrders.map(order => `
+            <div style="padding: 1rem; border-bottom: 1px solid var(--gray-300);">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <strong>Order #${order.id}</strong>
+                <span style="color: var(--green-700); font-weight: 700;">${formatPrice(order.total)}</span>
+              </div>
+              <div style="color: var(--gray-500); font-size: 0.875rem;">${new Date(order.date).toLocaleDateString()}</div>
+              <div style="margin-top: 0.5rem; font-size: 0.875rem;">${order.items.map(i => `${i.name} x${i.qty}`).join(', ')}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function logout() {
+  state.user = null;
+  saveState();
+  showToast('Logged out successfully');
+  renderPage('home');
+}
+
+// Checkout
+function showCheckout() {
+  if(state.cart.length === 0) return;
+  if(!state.user) {
+    closeCart();
+    showAuthModal();
+    showToast('Please login to checkout');
+    return;
+  }
+  
+  const total = state.cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+  
+  showModal(`
+    <div class="modal-header">
+      <h3>Checkout</h3>
+      <button class="icon-btn" onclick="closeModal()">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <h4 style="margin-bottom: 1rem;">Order Summary</h4>
+      ${state.cart.map(item => `
+        <div style="display: flex; justify-content: space-between; padding: 0.5rem 0;">
+          <span>${item.name} x${item.qty}</span>
+          <span>${formatPrice(item.price * item.qty)}</span>
+        </div>
+      `).join('')}
+      <div style="border-top: 2px solid var(--gray-300); margin: 1rem 0; padding-top: 1rem;">
+        <div style="display: flex; justify-content: space-between; font-size: 1.25rem; font-weight: 700;">
+          <span>Total:</span>
+          <span>${formatPrice(total)}</span>
+        </div>
+      </div>
+      <form id="checkout-form">
+        <div class="form-group">
+          <label>Card Number</label>
+          <input type="text" placeholder="4242 4242 4242 4242" pattern="[0-9\\s]{19}" maxlength="19" required>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label>Expiry</label>
+            <input type="text" placeholder="MM/YY" pattern="[0-9]{2}/[0-9]{2}" maxlength="5" required>
+          </div>
+          <div class="form-group">
+            <label>CVC</label>
+            <input type="text" placeholder="123" pattern="[0-9]{3}" maxlength="3" required>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Pay ${formatPrice(total)}</button>
+      </form>
+    </div>
+  `);
+  
+  $('#checkout-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    processOrder(total);
+  });
+}
+
+function processOrder(total) {
+  const order = {
+    id: Date.now(),
+    email: state.user.email,
+    date: new Date().toISOString(),
+    total: total,
+    items: state.cart.map(item => ({id: item.id, name: item.name, price: item.price, qty: item.qty}))
+  };
+  
+  state.orders.push(order);
+  
+  // Update stock
+  state.cart.forEach(item => {
+    const product = state.products.find(p => p.id === item.id);
+    if(product) product.stock -= item.qty;
+  });
+  
+  state.cart = [];
+  saveState();
+  closeModal();
+  closeCart();
+  updateCartUI();
+  
+  if(typeof gtag !== 'undefined') gtag('event', 'purchase', {
+    transaction_id: order.id,
+    value: total,
+    currency: 'USD',
+    items: order.items.map(i => ({item_id: i.id, item_name: i.name, price: i.price, quantity: i.qty}))
+  });
+  
+  showModal(`
+    <div class="modal-header">
+      <h3>Order Confirmed!</h3>
+      <button class="icon-btn" onclick="closeModal(); renderPage('home');">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+      </button>
+    </div>
+    <div class="modal-body" style="text-align: center;">
+      <div style="font-size: 4rem; margin-bottom: 1rem;">✅</div>
+      <h3 style="color: var(--green-700); margin-bottom: 1rem;">Thank You!</h3>
+      <p style="margin-bottom: 1rem;">Your order #${order.id} has been confirmed.</p>
+      <p style="color: var(--gray-500); margin-bottom: 2rem;">We'll send a confirmation email to ${state.user.email}</p>
+      <button class="btn btn-primary" onclick="closeModal(); renderPage('profile');">View Order</button>
+    </div>
+  `);
+  
+  if(state.currentPage === 'products') renderProducts();
+}
+
+// Admin Panel
+let logoClicks = [];
+function handleLogoClick() {
+  const now = Date.now();
+  logoClicks = logoClicks.filter(t => now - t < 1000);
+  logoClicks.push(now);
+  if(logoClicks.length >= 5) {
+    logoClicks = [];
+    showAdminLogin();
+  }
+}
+
+function showAdminLogin() {
+  const storedPass = localStorage.getItem('fg_admin_pass') || 'admin123';
+  const pass = prompt('Enter admin password:');
+  if(pass === storedPass) {
+    showAdminPanel();
+  } else if(pass) {
+    showToast('Incorrect password');
+  }
+}
+
+function showAdminPanel() {
+  showModal(`
+    <div class="modal-header">
+      <h3>Admin Panel</h3>
+      <button class="icon-btn" onclick="closeModal()">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="tabs">
+        <button class="tab active" id="orders-tab">Orders</button>
+        <button class="tab" id="products-tab">Products</button>
+      </div>
+      <div id="admin-content"></div>
+      <button class="btn btn-orange" style="margin-top: 1rem;" onclick="exportOrders()">Export Orders JSON</button>
+    </div>
+  `, 'admin-modal');
+  
+  $('#orders-tab').addEventListener('click', () => {
+    $('#orders-tab').classList.add('active');
+    $('#products-tab').classList.remove('active');
+    renderAdminOrders();
+  });
+  
+  $('#products-tab').addEventListener('click', () => {
+    $('#products-tab').classList.add('active');
+    $('#orders-tab').classList.remove('active');
+    renderAdminProducts();
+  });
+  
+  renderAdminOrders();
+}
+
+function renderAdminOrders() {
+  $('#admin-content').innerHTML = `
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Email</th>
+          <th>Date</th>
+          <th>Total</th>
+          <th>Items</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${state.orders.length === 0 ? '<tr><td colspan="5" style="text-align: center; color: var(--gray-500);">No orders yet</td></tr>' : 
+          state.orders.map(o => `
+          <tr>
+            <td>#${o.id}</td>
+            <td>${o.email}</td>
+            <td>${new Date(o.date).toLocaleDateString()}</td>
+            <td>${formatPrice(o.total)}</td>
+            <td>${o.items.length} items</td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>
+  `;
+}
+
+function renderAdminProducts() {
+  $('#admin-content').innerHTML = `
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Stock</th>
+          <th>Active</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${state.products.map(p => `
+          <tr>
+            <td><input type="text" value="${p.name}" onchange="updateProduct(${p.id}, 'name', this.value)"></td>
+            <td><input type="number" step="0.01" value="${p.price}" onchange="updateProduct(${p.id}, 'price', this.value)"></td>
+            <td><input type="number" value="${p.stock}" onchange="updateProduct(${p.id}, 'stock', this.value)"></td>
+            <td><input type="checkbox" ${p.active ? 'checked' : ''} onchange="updateProduct(${p.id}, 'active', this.checked)"></td>
+            <td><button class="btn btn-primary" style="padding: 0.375rem 0.75rem; font-size: 0.875rem;" onclick="saveProductUpdate()">Save</button></td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>
+  `;
+}
+
+function updateProduct(id, field, value) {
+  const product = state.products.find(p => p.id === id);
+  if(!product) return;
+  if(field === 'price' || field === 'stock') value = parseFloat(value);
+  product[field] = value;
+}
+
+function saveProductUpdate() {
+  saveState();
+  showToast('Product updated');
+  if(state.currentPage === 'products' || state.currentPage === 'home') renderPage(state.currentPage);
+}
+
+function exportOrders() {
+  const data = JSON.stringify(state.orders, null, 2);
+  const blob = new Blob([data], {type: 'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `fruitegetable-orders-${Date.now()}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('Orders exported');
+}
+
+// Modal Functions
+function showModal(content, className = '') {
+  const overlay = $('#modal-overlay');
+  const modal = $('#modal');
+  modal.innerHTML = content;
+  if(className) modal.classList.add(className);
+  overlay.classList.add('active');
+}
+
+function closeModal() {
+  $('#modal-overlay').classList.remove('active');
+  $('#modal').className = 'modal';
+}
+
+function closeCart() {
+  $('#cart-overlay').classList.remove('active');
+  $('#cart-drawer').classList.remove('active');
+}
+
+// Event Listeners
+function init() {
+  // Initialize
+  renderPage('home');
+  updateCartUI();
+  
+  // GA page view - safe check
+  if(typeof gtag !== 'undefined') gtag('event', 'page_view');
+  
+  // Navigation
+  $$('.nav-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      renderPage(link.dataset.page);
+      $('#nav').classList.remove('active');
+    });
+  });
+  
+  // Logo clicks for admin
+  $('#logo').addEventListener('click', handleLogoClick);
+  
+  // Cart
+  $('#cart-btn').addEventListener('click', () => {
+    $('#cart-overlay').classList.add('active');
+    $('#cart-drawer').classList.add('active');
+    renderCart();
+  });
+  
+  $('#close-cart').addEventListener('click', closeCart);
+  $('#cart-overlay').addEventListener('click', (e) => {
+    if(e.target === $('#cart-overlay')) closeCart();
+  });
+  
+  $('#checkout-btn').addEventListener('click', showCheckout);
+  
+  // User
+  $('#user-btn').addEventListener('click', showAuthModal);
+  
+  // Mobile menu
+  $('#menu-btn').addEventListener('click', () => {
+    $('#nav').classList.toggle('active');
+  });
+  
+  // Modal close
+  $('#modal-overlay').addEventListener('click', (e) => {
+    if(e.target === $('#modal-overlay')) closeModal();
+  });
+  
+  // Check admin param
+  if(new URLSearchParams(window.location.search).get('admin') === 'true') {
+    showAdminLogin();
+  }
+}
+
+// Make functions global
+window.addToCart = addToCart;
+window.updateQty = updateQty;
+window.viewProduct = viewProduct;
+window.renderPage = renderPage;
+window.logout = logout;
+window.updateProduct = updateProduct;
+window.saveProductUpdate = saveProductUpdate;
+window.exportOrders = exportOrders;
+window.closeModal = closeModal;
+
+// Start app
+init();
+</script>
+</body>
+</html>
